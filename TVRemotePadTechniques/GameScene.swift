@@ -52,6 +52,9 @@ class GameScene: SKScene {
         // Enable absolute D-pad values (useful for 4-corner readings)
         microGamePad.reportsAbsoluteDpadValues = true
 
+        // Allow the controller to transpose D-pad input values 90 degress in landscape mode
+        microGamePad.allowsRotation = true
+
         // Enable continuous D-pad reading
         microGamePad.valueChangedHandler = { [unowned self] microGamePad, movement in
             if let dpad = movement as? GCControllerDirectionPad {
