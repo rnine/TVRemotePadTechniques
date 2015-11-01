@@ -1,6 +1,6 @@
 //
 //  GameScene.swift
-//  FourCornerPad
+//  TVRemotePadTechniques
 //
 //  Created by Ruben Nine on 01/11/15.
 //  Copyright (c) 2015 9Labs. All rights reserved.
@@ -52,32 +52,22 @@ class GameScene: SKScene {
         // Enable absolute D-pad values (useful for 4-corner readings)
         microGamePad.reportsAbsoluteDpadValues = true
 
-        // Enable continuous dpad reading
+        // Enable continuous D-pad reading
         microGamePad.valueChangedHandler = { [unowned self] microGamePad, movement in
             if let dpad = movement as? GCControllerDirectionPad {
+                let pressedCorner = self.findPressedDPadCorner(dpad)
 
-                switch (dpad.xAxis.value, dpad.yAxis.value) {
-                case (0, 0):
-                    if self.lastPressedCorner != .None {
-                        // Touch finished
+                if self.lastPressedCorner != .None && pressedCorner != self.lastPressedCorner {
+                    // Touch ended
+                    self.unpressCorner(self.lastPressedCorner)
+                    self.lastPressedCorner = .None
+                }
 
-                        if let nodeForCorner = self.getNodeForCorner(self.lastPressedCorner) {
-                            let unfadeAction = SKAction.fadeAlphaTo(1.0, duration: 0.15)
-                            nodeForCorner.runAction(unfadeAction)
-                        }
-
-                        self.lastPressedCorner = .None
-                    }
-                default:
+                if pressedCorner != .None {
                     if self.lastPressedCorner == .None {
                         // Touch began
-
-                        self.lastPressedCorner = self.handleDPad(dpad)
-
-                        if let nodeForCorner = self.getNodeForCorner(self.lastPressedCorner) {
-                            let fadeAction = SKAction.fadeAlphaTo(0.5, duration: 0.15)
-                            nodeForCorner.runAction(fadeAction)
-                        }
+                        self.lastPressedCorner = pressedCorner
+                        self.pressCorner(self.lastPressedCorner)
                     }
                 }
             }
@@ -89,6 +79,38 @@ class GameScene: SKScene {
     }
 
     // MARK: Private Functions
+
+    // Read D-Pad and return the active corner out of the 4 possible corners
+    private func findPressedDPadCorner(dpad: GCControllerDirectionPad) -> PressedCorner {
+        switch (dpad.xAxis.value, dpad.yAxis.value) {
+        case (0, 0):
+            return .None
+        case (-1..<0, 0...1):
+            return .TopLeft
+        case (0...1, 0...1):
+            return .TopRight
+        case (0...1, -1..<0):
+            return .BottomRight
+        case (-1..<0, -1..<0):
+            return .BottomLeft
+        default:
+            return .None
+        }
+    }
+
+    private func pressCorner(corner: PressedCorner) {
+        if let nodeForCorner = self.getNodeForCorner(self.lastPressedCorner) {
+            let unfadeAction = SKAction.fadeAlphaTo(0.45, duration: 0.15)
+            nodeForCorner.runAction(unfadeAction)
+        }
+    }
+
+    private func unpressCorner(corner: PressedCorner) {
+        if let nodeForCorner = self.getNodeForCorner(self.lastPressedCorner) {
+            let unfadeAction = SKAction.fadeAlphaTo(1.0, duration: 0.15)
+            nodeForCorner.runAction(unfadeAction)
+        }
+    }
 
     private func getNodeForCorner(corner: PressedCorner) -> SKNode? {
         switch corner {
@@ -102,24 +124,6 @@ class GameScene: SKScene {
             return childNodeWithName("BLNode")
         case .None:
             return nil
-        }
-    }
-
-    private func handleDPad(dpad: GCControllerDirectionPad) -> PressedCorner {
-        print("D-pad x: \(dpad.xAxis.value), y: \(dpad.yAxis.value)")
-
-        // Naive 4-corner detection
-        switch (dpad.xAxis.value, dpad.yAxis.value) {
-        case (-1..<0, 0...1):
-            return .TopLeft
-        case (0...1, 0...1):
-            return .TopRight
-        case (0...1, -1..<0):
-            return .BottomRight
-        case (-1..<0, -1..<0):
-            return .BottomLeft
-        default:
-            return .None
         }
     }
 }

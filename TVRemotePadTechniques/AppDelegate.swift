@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FourCornerPad
+//  TVRemotePadTechniques
 //
 //  Created by Ruben Nine on 01/11/15.
 //  Copyright © 2015 9Labs. All rights reserved.
