@@ -102,16 +102,23 @@ class GameScene: SKScene {
     }
 
     private func pressCorner(corner: PressedCorner) {
-        if let nodeForCorner = self.getNodeForCorner(self.lastPressedCorner) {
-            let unfadeAction = SKAction.fadeAlphaTo(0.45, duration: 0.15)
-            nodeForCorner.runAction(unfadeAction)
+        if let nodeForCorner = getNodeForCorner(corner) {
+            let fadeAction = SKAction.fadeAlphaTo(0.60, duration: 0.15)
+            let scaleAction = SKAction.scaleTo(0.95, duration: 0.15)
+            let soundAction = SKAction.playSoundFileNamed("sword", waitForCompletion: false)
+            let sequence = SKAction.group([fadeAction, scaleAction, soundAction])
+
+            nodeForCorner.runAction(sequence)
         }
     }
 
     private func unpressCorner(corner: PressedCorner) {
-        if let nodeForCorner = self.getNodeForCorner(self.lastPressedCorner) {
-            let unfadeAction = SKAction.fadeAlphaTo(1.0, duration: 0.15)
-            nodeForCorner.runAction(unfadeAction)
+        if let nodeForCorner = getNodeForCorner(corner) {
+            let fadeAction = SKAction.fadeAlphaTo(1.0, duration: 0.15)
+            let scaleAction = SKAction.scaleTo(1.0, duration: 0.15)
+            let sequence = SKAction.group([fadeAction, scaleAction])
+
+            nodeForCorner.runAction(sequence)
         }
     }
 

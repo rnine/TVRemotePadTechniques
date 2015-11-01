@@ -14,6 +14,7 @@
 		453515221BE655FD00F06790 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453515211BE655FD00F06790 /* Game.xcassets */; };
 		453515251BE655FD00F06790 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453515231BE655FD00F06790 /* Main.storyboard */; };
 		453515271BE655FD00F06790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453515261BE655FD00F06790 /* Assets.xcassets */; };
+		45F298231BE6B0C8007A256F /* sword.wav in Resources */ = {isa = PBXBuildFile; fileRef = 45F298221BE6B0C8007A256F /* sword.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		453515241BE655FD00F06790 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		453515261BE655FD00F06790 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453515281BE655FD00F06790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45F298221BE6B0C8007A256F /* sword.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		453515181BE655FD00F06790 /* TVRemotePadTechniques */ = {
 			isa = PBXGroup;
 			children = (
+				45F298211BE6B0BE007A256F /* Sounds */,
 				453515191BE655FD00F06790 /* AppDelegate.swift */,
 				4535151B1BE655FD00F06790 /* GameScene.sks */,
 				4535151D1BE655FD00F06790 /* GameScene.swift */,
@@ -68,6 +71,14 @@
 				453515281BE655FD00F06790 /* Info.plist */,
 			);
 			path = TVRemotePadTechniques;
+			sourceTree = "<group>";
+		};
+		45F298211BE6B0BE007A256F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				45F298221BE6B0C8007A256F /* sword.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F298231BE6B0C8007A256F /* sword.wav in Resources */,
 				453515251BE655FD00F06790 /* Main.storyboard in Resources */,
 				4535151C1BE655FD00F06790 /* GameScene.sks in Resources */,
 				453515271BE655FD00F06790 /* Assets.xcassets in Resources */,
