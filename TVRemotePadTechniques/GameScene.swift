@@ -50,6 +50,7 @@ class GameScene: SKScene {
         }
 
         // Enable absolute D-pad values (useful for 4-corner readings)
+        // Disable to use slide mode
         microGamePad.reportsAbsoluteDpadValues = true
 
         // Allow the controller to transpose D-pad input values 90 degress in landscape mode
