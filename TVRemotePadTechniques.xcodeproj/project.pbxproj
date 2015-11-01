@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4535151A1BE655FD00F06790 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453515191BE655FD00F06790 /* AppDelegate.swift */; };
+		4535151C1BE655FD00F06790 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4535151B1BE655FD00F06790 /* GameScene.sks */; };
+		4535151E1BE655FD00F06790 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535151D1BE655FD00F06790 /* GameScene.swift */; };
+		453515201BE655FD00F06790 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535151F1BE655FD00F06790 /* GameViewController.swift */; };
+		453515221BE655FD00F06790 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453515211BE655FD00F06790 /* Game.xcassets */; };
+		453515251BE655FD00F06790 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453515231BE655FD00F06790 /* Main.storyboard */; };
+		453515271BE655FD00F06790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453515261BE655FD00F06790 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		453515161BE655FD00F06790 /* TVRemotePadTechniques.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVRemotePadTechniques.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		453515191BE655FD00F06790 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4535151B1BE655FD00F06790 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		4535151D1BE655FD00F06790 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		4535151F1BE655FD00F06790 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		453515211BE655FD00F06790 /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
+		453515241BE655FD00F06790 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		453515261BE655FD00F06790 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		453515281BE655FD00F06790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		453515131BE655FD00F06790 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4535150D1BE655FD00F06790 = {
+			isa = PBXGroup;
+			children = (
+				453515181BE655FD00F06790 /* TVRemotePadTechniques */,
+				453515171BE655FD00F06790 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		453515171BE655FD00F06790 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				453515161BE655FD00F06790 /* TVRemotePadTechniques.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		453515181BE655FD00F06790 /* TVRemotePadTechniques */ = {
+			isa = PBXGroup;
+			children = (
+				453515191BE655FD00F06790 /* AppDelegate.swift */,
+				4535151B1BE655FD00F06790 /* GameScene.sks */,
+				4535151D1BE655FD00F06790 /* GameScene.swift */,
+				4535151F1BE655FD00F06790 /* GameViewController.swift */,
+				453515211BE655FD00F06790 /* Game.xcassets */,
+				453515231BE655FD00F06790 /* Main.storyboard */,
+				453515261BE655FD00F06790 /* Assets.xcassets */,
+				453515281BE655FD00F06790 /* Info.plist */,
+			);
+			path = TVRemotePadTechniques;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		453515151BE655FD00F06790 /* TVRemotePadTechniques */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4535152B1BE655FD00F06790 /* Build configuration list for PBXNativeTarget "TVRemotePadTechniques" */;
+			buildPhases = (
+				453515121BE655FD00F06790 /* Sources */,
+				453515131BE655FD00F06790 /* Frameworks */,
+				453515141BE655FD00F06790 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TVRemotePadTechniques;
+			productName = Padstimate;
+			productReference = 453515161BE655FD00F06790 /* TVRemotePadTechniques.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4535150E1BE655FD00F06790 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = 9Labs;
+				TargetAttributes = {
+					453515151BE655FD00F06790 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 453515111BE655FD00F06790 /* Build configuration list for PBXProject "TVRemotePadTechniques" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4535150D1BE655FD00F06790;
+			productRefGroup = 453515171BE655FD00F06790 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				453515151BE655FD00F06790 /* TVRemotePadTechniques */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		453515141BE655FD00F06790 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				453515251BE655FD00F06790 /* Main.storyboard in Resources */,
+				4535151C1BE655FD00F06790 /* GameScene.sks in Resources */,
+				453515271BE655FD00F06790 /* Assets.xcassets in Resources */,
+				453515221BE655FD00F06790 /* Game.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		453515121BE655FD00F06790 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4535151E1BE655FD00F06790 /* GameScene.swift in Sources */,
+				453515201BE655FD00F06790 /* GameViewController.swift in Sources */,
+				4535151A1BE655FD00F06790 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		453515231BE655FD00F06790 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				453515241BE655FD00F06790 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		453515291BE655FD00F06790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		4535152A1BE655FD00F06790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4535152C1BE655FD00F06790 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = TVRemotePadTechniques/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.9labs.TVRemotePadTechniques;
+				PRODUCT_NAME = TVRemotePadTechniques;
+			};
+			name = Debug;
+		};
+		4535152D1BE655FD00F06790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = TVRemotePadTechniques/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.9labs.TVRemotePadTechniques;
+				PRODUCT_NAME = TVRemotePadTechniques;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		453515111BE655FD00F06790 /* Build configuration list for PBXProject "TVRemotePadTechniques" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				453515291BE655FD00F06790 /* Debug */,
+				4535152A1BE655FD00F06790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4535152B1BE655FD00F06790 /* Build configuration list for PBXNativeTarget "TVRemotePadTechniques" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4535152C1BE655FD00F06790 /* Debug */,
+				4535152D1BE655FD00F06790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4535150E1BE655FD00F06790 /* Project object */;
+}
