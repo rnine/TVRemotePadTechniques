@@ -86,7 +86,7 @@ class GameScene: SKScene {
     }
 
     private func setupMicroGamepad(microGamepad: GCMicroGamepad) {
-        // Enable continuous D-pad reading
+        // Handle D-pad value changes
         microGamepad.valueChangedHandler = { [unowned self] microGamePad, movement in
             if let dpad = movement as? GCControllerDirectionPad {
                 self.padHandler.handlePress(xAxis: CGFloat(dpad.xAxis.value), yAxis: CGFloat(dpad.yAxis.value),
@@ -100,7 +100,7 @@ class GameScene: SKScene {
             }
         }
 
-        // Handle Y-button press (play/pause on the Siri Remote)
+        // Handle X-button press (play/pause on the Siri Remote)
         microGamepad.buttonX.pressedChangedHandler = { _, _, pressed in
             if pressed {
                 if let gvc = self.view?.window?.rootViewController as? GameViewController {
