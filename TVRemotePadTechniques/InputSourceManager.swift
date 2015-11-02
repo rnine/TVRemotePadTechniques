@@ -12,6 +12,7 @@ import GameController
 struct InputSourceManagerNotification {
     static let DidConnect = "InputSourceManagerDidConnectNotification"
     static let DidDisconnect = "InputSourceManagerDidDisconnectNotification"
+    static let SlideModeChanged = "InputSourceManagerSlideModeChanged"
 }
 
 class InputSourceManager: NSObject {
@@ -68,6 +69,17 @@ class InputSourceManager: NSObject {
 
         // Allow the controller to transpose D-pad input values 90 degress in landscape mode
         microGamepad?.allowsRotation = true
+
+        // Handle A-button press (touchpad click)
+        microGamepad?.buttonA.pressedChangedHandler = { _, _, pressed in
+            if pressed {
+                self.microGamepad!.reportsAbsoluteDpadValues = !self.microGamepad!.reportsAbsoluteDpadValues
+
+                NSNotificationCenter.defaultCenter().postNotificationName(InputSourceManagerNotification.SlideModeChanged,
+                    object: connectedGameController
+                )
+            }
+        }
 
         NSNotificationCenter.defaultCenter().postNotificationName(InputSourceManagerNotification.DidConnect,
             object: connectedGameController

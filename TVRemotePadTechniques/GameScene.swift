@@ -26,8 +26,18 @@ class GameScene: SKScene {
             object: nil
         )
 
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "controllerSlideModeChanged:",
+            name: InputSourceManagerNotification.SlideModeChanged,
+            object: nil
+        )
+
         if let microGamepad = InputSourceManager.sharedManager.microGamepad {
             setupMicroGamepad(microGamepad)
+
+            if let label = childNodeWithName("SlideModeLabelNode") as? SKLabelNode {
+                label.text = microGamepad.reportsAbsoluteDpadValues ? "slide mode off" : "slide mode on"
+            }
         }
     }
 
@@ -39,6 +49,11 @@ class GameScene: SKScene {
 
         NSNotificationCenter.defaultCenter().removeObserver(self,
             name: InputSourceManagerNotification.DidDisconnect,
+            object: nil
+        )
+
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: InputSourceManagerNotification.SlideModeChanged,
             object: nil
         )
     }
@@ -119,5 +134,13 @@ class GameScene: SKScene {
 
     @objc private func controllerDidDisconnect(notification: NSNotification) {
         // NO-OP
+    }
+
+    @objc private func controllerSlideModeChanged(notification: NSNotification) {
+        if let microGamepad = InputSourceManager.sharedManager.microGamepad {
+            if let label = childNodeWithName("SlideModeLabelNode") as? SKLabelNode {
+                label.text = microGamepad.reportsAbsoluteDpadValues ? "slide mode off" : "slide mode on"
+            }
+        }
     }
 }

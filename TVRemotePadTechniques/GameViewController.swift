@@ -32,7 +32,7 @@ class GameViewController: GCEventViewController {
             scene.scaleMode = .AspectFill
 
             if shouldTransition {
-                let transition = SKTransition.moveInWithDirection(.Right, duration: 0.35)
+                let transition = SKTransition.revealWithDirection(.Left, duration: 0.35)
                 skView.presentScene(scene, transition: transition)
             } else {
                 skView.presentScene(scene)
