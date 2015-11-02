@@ -8,25 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		4535151A1BE655FD00F06790 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453515191BE655FD00F06790 /* AppDelegate.swift */; };
-		4535151C1BE655FD00F06790 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4535151B1BE655FD00F06790 /* GameScene.sks */; };
+		4535151C1BE655FD00F06790 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4535151B1BE655FD00F06790 /* GameScene2.sks */; };
 		4535151E1BE655FD00F06790 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535151D1BE655FD00F06790 /* GameScene.swift */; };
 		453515201BE655FD00F06790 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535151F1BE655FD00F06790 /* GameViewController.swift */; };
 		453515221BE655FD00F06790 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453515211BE655FD00F06790 /* Game.xcassets */; };
 		453515251BE655FD00F06790 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453515231BE655FD00F06790 /* Main.storyboard */; };
 		453515271BE655FD00F06790 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453515261BE655FD00F06790 /* Assets.xcassets */; };
+		45373DEA1BE78E0D00A8162D /* InputSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45373DE91BE78E0D00A8162D /* InputSourceManager.swift */; };
+		45373DF51BE7999700A8162D /* DPadSideHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45373DF41BE7999700A8162D /* DPadSideHandler.swift */; };
+		45373DF81BE79B5800A8162D /* DPadCornerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45373DF71BE79B5800A8162D /* DPadCornerHandler.swift */; };
+		45D5FC741BE7721200F038D0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 45D5FC731BE7721200F038D0 /* GameScene.sks */; };
+		45D5FC761BE7746300F038D0 /* GameScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5FC751BE7746300F038D0 /* GameScene2.swift */; };
 		45F298231BE6B0C8007A256F /* sword.wav in Resources */ = {isa = PBXBuildFile; fileRef = 45F298221BE6B0C8007A256F /* sword.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		453515161BE655FD00F06790 /* TVRemotePadTechniques.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVRemotePadTechniques.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		453515191BE655FD00F06790 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4535151B1BE655FD00F06790 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		4535151B1BE655FD00F06790 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
 		4535151D1BE655FD00F06790 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4535151F1BE655FD00F06790 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		453515211BE655FD00F06790 /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
 		453515241BE655FD00F06790 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		453515261BE655FD00F06790 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453515281BE655FD00F06790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45373DE91BE78E0D00A8162D /* InputSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputSourceManager.swift; sourceTree = "<group>"; };
+		45373DF41BE7999700A8162D /* DPadSideHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPadSideHandler.swift; sourceTree = "<group>"; };
+		45373DF71BE79B5800A8162D /* DPadCornerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPadCornerHandler.swift; sourceTree = "<group>"; };
+		45D5FC731BE7721200F038D0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		45D5FC751BE7746300F038D0 /* GameScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene2.swift; sourceTree = "<group>"; };
 		45F298221BE6B0C8007A256F /* sword.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,17 +70,30 @@
 		453515181BE655FD00F06790 /* TVRemotePadTechniques */ = {
 			isa = PBXGroup;
 			children = (
-				45F298211BE6B0BE007A256F /* Sounds */,
-				453515191BE655FD00F06790 /* AppDelegate.swift */,
-				4535151B1BE655FD00F06790 /* GameScene.sks */,
-				4535151D1BE655FD00F06790 /* GameScene.swift */,
-				4535151F1BE655FD00F06790 /* GameViewController.swift */,
-				453515211BE655FD00F06790 /* Game.xcassets */,
-				453515231BE655FD00F06790 /* Main.storyboard */,
-				453515261BE655FD00F06790 /* Assets.xcassets */,
 				453515281BE655FD00F06790 /* Info.plist */,
+				45D5FC731BE7721200F038D0 /* GameScene.sks */,
+				4535151B1BE655FD00F06790 /* GameScene2.sks */,
+				453515191BE655FD00F06790 /* AppDelegate.swift */,
+				4535151D1BE655FD00F06790 /* GameScene.swift */,
+				45D5FC751BE7746300F038D0 /* GameScene2.swift */,
+				4535151F1BE655FD00F06790 /* GameViewController.swift */,
+				45373DE91BE78E0D00A8162D /* InputSourceManager.swift */,
+				453515261BE655FD00F06790 /* Assets.xcassets */,
+				453515211BE655FD00F06790 /* Game.xcassets */,
+				45373DF61BE79B3D00A8162D /* D-pad handlers */,
+				453515231BE655FD00F06790 /* Main.storyboard */,
+				45F298211BE6B0BE007A256F /* Sounds */,
 			);
 			path = TVRemotePadTechniques;
+			sourceTree = "<group>";
+		};
+		45373DF61BE79B3D00A8162D /* D-pad handlers */ = {
+			isa = PBXGroup;
+			children = (
+				45373DF41BE7999700A8162D /* DPadSideHandler.swift */,
+				45373DF71BE79B5800A8162D /* DPadCornerHandler.swift */,
+			);
+			name = "D-pad handlers";
 			sourceTree = "<group>";
 		};
 		45F298211BE6B0BE007A256F /* Sounds */ = {
@@ -141,9 +164,10 @@
 			files = (
 				45F298231BE6B0C8007A256F /* sword.wav in Resources */,
 				453515251BE655FD00F06790 /* Main.storyboard in Resources */,
-				4535151C1BE655FD00F06790 /* GameScene.sks in Resources */,
+				4535151C1BE655FD00F06790 /* GameScene2.sks in Resources */,
 				453515271BE655FD00F06790 /* Assets.xcassets in Resources */,
 				453515221BE655FD00F06790 /* Game.xcassets in Resources */,
+				45D5FC741BE7721200F038D0 /* GameScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,8 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4535151E1BE655FD00F06790 /* GameScene.swift in Sources */,
+				45D5FC761BE7746300F038D0 /* GameScene2.swift in Sources */,
 				453515201BE655FD00F06790 /* GameViewController.swift in Sources */,
+				45373DEA1BE78E0D00A8162D /* InputSourceManager.swift in Sources */,
+				45373DF51BE7999700A8162D /* DPadSideHandler.swift in Sources */,
 				4535151A1BE655FD00F06790 /* AppDelegate.swift in Sources */,
+				45373DF81BE79B5800A8162D /* DPadCornerHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

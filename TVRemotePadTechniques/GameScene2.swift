@@ -9,9 +9,9 @@
 import SpriteKit
 import GameController
 
-class GameScene: SKScene {
+class GameScene2: SKScene {
 
-    private let padHandler = DPadCornerHandler()
+    private let padHandler = DPadSideHandler()
 
     override func didMoveToView(view: SKView) {
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -49,37 +49,37 @@ class GameScene: SKScene {
 
     // MARK: Private Functions
 
-    private func pressCorner(corner: PressedDPadCorner) {
-        if let nodeForCorner = getNodeForCorner(corner) {
+    private func pressSide(side: PressedDPadSide) {
+        if let nodeForSide = getNodeForSide(side) {
             let fadeAction = SKAction.fadeAlphaTo(0.60, duration: 0.15)
             let scaleAction = SKAction.scaleTo(0.95, duration: 0.15)
             let soundAction = SKAction.playSoundFileNamed("sword", waitForCompletion: false)
             let sequence = SKAction.group([fadeAction, scaleAction, soundAction])
 
-            nodeForCorner.runAction(sequence)
+            nodeForSide.runAction(sequence)
         }
     }
 
-    private func unpressCorner(corner: PressedDPadCorner) {
-        if let nodeForCorner = getNodeForCorner(corner) {
+    private func unpressSide(side: PressedDPadSide) {
+        if let nodeForSide = getNodeForSide(side) {
             let fadeAction = SKAction.fadeAlphaTo(1.0, duration: 0.15)
             let scaleAction = SKAction.scaleTo(1.0, duration: 0.15)
             let sequence = SKAction.group([fadeAction, scaleAction])
 
-            nodeForCorner.runAction(sequence)
+            nodeForSide.runAction(sequence)
         }
     }
 
-    private func getNodeForCorner(corner: PressedDPadCorner) -> SKNode? {
-        switch corner {
-        case .TopLeft:
-            return childNodeWithName("TLNode")
-        case .TopRight:
-            return childNodeWithName("TRNode")
-        case .BottomRight:
-            return childNodeWithName("BRNode")
-        case .BottomLeft:
-            return childNodeWithName("BLNode")
+    private func getNodeForSide(side: PressedDPadSide) -> SKNode? {
+        switch side {
+        case .Left:
+            return childNodeWithName("LNode")
+        case .Right:
+            return childNodeWithName("RNode")
+        case .Up:
+            return childNodeWithName("UNode")
+        case .Down:
+            return childNodeWithName("DNode")
         case .None:
             return nil
         }
@@ -90,11 +90,11 @@ class GameScene: SKScene {
         microGamepad.valueChangedHandler = { [unowned self] microGamePad, movement in
             if let dpad = movement as? GCControllerDirectionPad {
                 self.padHandler.handlePress(xAxis: CGFloat(dpad.xAxis.value), yAxis: CGFloat(dpad.yAxis.value),
-                    onPress: { corner in
-                        self.pressCorner(corner)
+                    onPress: { side in
+                        self.pressSide(side)
                     },
-                    onRelease: { corner in
-                        self.unpressCorner(corner)
+                    onRelease: { side in
+                        self.unpressSide(side)
                     }
                 )
             }
@@ -104,12 +104,11 @@ class GameScene: SKScene {
         microGamepad.buttonX.pressedChangedHandler = { _, _, pressed in
             if pressed {
                 if let gvc = self.view?.window?.rootViewController as? GameViewController {
-                    gvc.presentSceneNamed("GameScene2", shouldTransition: true)
+                    gvc.presentSceneNamed("GameScene", shouldTransition: true)
                 }
             }
         }
     }
-
 
     @objc private func controllerDidConnect(notification: NSNotification) {
         if let microGamepad = InputSourceManager.sharedManager.microGamepad {
