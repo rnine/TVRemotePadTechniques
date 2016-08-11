@@ -13,21 +13,21 @@ class GameScene: SKScene {
 
     private let padHandler = DPadCornerHandler()
 
-    override func didMoveToView(view: SKView) {
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "controllerDidConnect:",
+    override func didMove(to view: SKView) {
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(GameScene.controllerDidConnect(_:)),
             name: InputSourceManagerNotification.DidConnect,
             object: nil
         )
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "controllerDidDisconnect:",
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(GameScene.controllerDidDisconnect(_:)),
             name: InputSourceManagerNotification.DidDisconnect,
             object: nil
         )
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "controllerSlideModeChanged:",
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(GameScene.controllerSlideModeChanged(_:)),
             name: InputSourceManagerNotification.SlideModeChanged,
             object: nil
         )
@@ -35,72 +35,72 @@ class GameScene: SKScene {
         if let microGamepad = InputSourceManager.sharedManager.microGamepad {
             setupMicroGamepad(microGamepad)
 
-            if let label = childNodeWithName("SlideModeLabelNode") as? SKLabelNode {
+            if let label = childNode(withName: "SlideModeLabelNode") as? SKLabelNode {
                 label.text = microGamepad.reportsAbsoluteDpadValues ? "slide mode off" : "slide mode on"
             }
         }
     }
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self,
+        NotificationCenter.default.removeObserver(self,
             name: InputSourceManagerNotification.DidConnect,
             object: nil
         )
 
-        NSNotificationCenter.defaultCenter().removeObserver(self,
+        NotificationCenter.default.removeObserver(self,
             name: InputSourceManagerNotification.DidDisconnect,
             object: nil
         )
 
-        NSNotificationCenter.defaultCenter().removeObserver(self,
+        NotificationCenter.default.removeObserver(self,
             name: InputSourceManagerNotification.SlideModeChanged,
             object: nil
         )
     }
 
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
     }
 
     // MARK: Private Functions
 
-    private func pressCorner(corner: PressedDPadCorner) {
+    private func pressCorner(_ corner: PressedDPadCorner) {
         if let nodeForCorner = getNodeForCorner(corner) {
-            let fadeAction = SKAction.fadeAlphaTo(0.60, duration: 0.15)
-            let scaleAction = SKAction.scaleTo(0.95, duration: 0.15)
+            let fadeAction = SKAction.fadeAlpha(to: 0.60, duration: 0.15)
+            let scaleAction = SKAction.scale(to: 0.95, duration: 0.15)
             let soundAction = SKAction.playSoundFileNamed("sword", waitForCompletion: false)
             let sequence = SKAction.group([fadeAction, scaleAction, soundAction])
 
-            nodeForCorner.runAction(sequence)
+            nodeForCorner.run(sequence)
         }
     }
 
-    private func unpressCorner(corner: PressedDPadCorner) {
+    private func unpressCorner(_ corner: PressedDPadCorner) {
         if let nodeForCorner = getNodeForCorner(corner) {
-            let fadeAction = SKAction.fadeAlphaTo(1.0, duration: 0.15)
-            let scaleAction = SKAction.scaleTo(1.0, duration: 0.15)
+            let fadeAction = SKAction.fadeAlpha(to: 1.0, duration: 0.15)
+            let scaleAction = SKAction.scale(to: 1.0, duration: 0.15)
             let sequence = SKAction.group([fadeAction, scaleAction])
 
-            nodeForCorner.runAction(sequence)
+            nodeForCorner.run(sequence)
         }
     }
 
-    private func getNodeForCorner(corner: PressedDPadCorner) -> SKNode? {
+    private func getNodeForCorner(_ corner: PressedDPadCorner) -> SKNode? {
         switch corner {
-        case .TopLeft:
-            return childNodeWithName("TLNode")
-        case .TopRight:
-            return childNodeWithName("TRNode")
-        case .BottomRight:
-            return childNodeWithName("BRNode")
-        case .BottomLeft:
-            return childNodeWithName("BLNode")
-        case .None:
+        case .topLeft:
+            return childNode(withName: "TLNode")
+        case .topRight:
+            return childNode(withName: "TRNode")
+        case .bottomRight:
+            return childNode(withName: "BRNode")
+        case .bottomLeft:
+            return childNode(withName: "BLNode")
+        case .none:
             return nil
         }
     }
 
-    private func setupMicroGamepad(microGamepad: GCMicroGamepad) {
+    private func setupMicroGamepad(_ microGamepad: GCMicroGamepad) {
         // Handle D-pad value changes
         microGamepad.valueChangedHandler = { [unowned self] microGamePad, movement in
             if let dpad = movement as? GCControllerDirectionPad {
@@ -126,19 +126,19 @@ class GameScene: SKScene {
     }
 
 
-    @objc private func controllerDidConnect(notification: NSNotification) {
+    @objc private func controllerDidConnect(_ notification: Notification) {
         if let microGamepad = InputSourceManager.sharedManager.microGamepad {
             setupMicroGamepad(microGamepad)
         }
     }
 
-    @objc private func controllerDidDisconnect(notification: NSNotification) {
+    @objc private func controllerDidDisconnect(_ notification: Notification) {
         // NO-OP
     }
 
-    @objc private func controllerSlideModeChanged(notification: NSNotification) {
+    @objc private func controllerSlideModeChanged(_ notification: Notification) {
         if let microGamepad = InputSourceManager.sharedManager.microGamepad {
-            if let label = childNodeWithName("SlideModeLabelNode") as? SKLabelNode {
+            if let label = childNode(withName: "SlideModeLabelNode") as? SKLabelNode {
                 label.text = microGamepad.reportsAbsoluteDpadValues ? "slide mode off" : "slide mode on"
             }
         }

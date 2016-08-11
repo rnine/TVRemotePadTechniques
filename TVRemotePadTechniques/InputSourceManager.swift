@@ -10,9 +10,9 @@ import UIKit
 import GameController
 
 struct InputSourceManagerNotification {
-    static let DidConnect = "InputSourceManagerDidConnectNotification"
-    static let DidDisconnect = "InputSourceManagerDidDisconnectNotification"
-    static let SlideModeChanged = "InputSourceManagerSlideModeChanged"
+    static let DidConnect = Notification.Name("InputSourceManagerDidConnectNotification")
+    static let DidDisconnect = Notification.Name("InputSourceManagerDidDisconnectNotification")
+    static let SlideModeChanged = Notification.Name("InputSourceManagerSlideModeChangedNotification")
 }
 
 class InputSourceManager: NSObject {
@@ -31,34 +31,34 @@ class InputSourceManager: NSObject {
 
     /// Register for `GCGameController` pairing notifications.
     private func registerForGameControllerNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "handleControllerDidConnectNotification:",
-            name: GCControllerDidConnectNotification,
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(InputSourceManager.handleControllerDidConnectNotification(_:)),
+            name: NSNotification.Name.GCControllerDidConnect,
             object: nil
         )
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "handleControllerDidDisconnectNotification:",
-            name: GCControllerDidDisconnectNotification,
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(InputSourceManager.handleControllerDidDisconnectNotification(_:)),
+            name: NSNotification.Name.GCControllerDidDisconnect,
             object: nil
         )
     }
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: GCControllerDidConnectNotification,
+        NotificationCenter.default.removeObserver(self,
+            name: NSNotification.Name.GCControllerDidConnect,
             object: nil
         )
 
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-            name: GCControllerDidDisconnectNotification,
+        NotificationCenter.default.removeObserver(self,
+            name: NSNotification.Name.GCControllerDidDisconnect,
             object: nil
         )
     }
 
     // MARK: GCGameController Notification Handling
 
-    @objc private func handleControllerDidConnectNotification(notification: NSNotification) {
+    @objc private func handleControllerDidConnectNotification(_ notification: Notification) {
         let connectedGameController = notification.object as! GCController
 
         microGamepad = connectedGameController.microGamepad
@@ -75,21 +75,21 @@ class InputSourceManager: NSObject {
             if pressed {
                 self.microGamepad!.reportsAbsoluteDpadValues = !self.microGamepad!.reportsAbsoluteDpadValues
 
-                NSNotificationCenter.defaultCenter().postNotificationName(InputSourceManagerNotification.SlideModeChanged,
+                NotificationCenter.default.post(name: InputSourceManagerNotification.SlideModeChanged,
                     object: connectedGameController
                 )
             }
         }
 
-        NSNotificationCenter.defaultCenter().postNotificationName(InputSourceManagerNotification.DidConnect,
+        NotificationCenter.default.post(name: InputSourceManagerNotification.DidConnect,
             object: connectedGameController
         )
     }
 
-    @objc private func handleControllerDidDisconnectNotification(notification: NSNotification) {
+    @objc private func handleControllerDidDisconnectNotification(_ notification: Notification) {
         let disconnectedGameController = notification.object as! GCController
 
-        NSNotificationCenter.defaultCenter().postNotificationName(InputSourceManagerNotification.DidDisconnect,
+        NotificationCenter.default.post(name: InputSourceManagerNotification.DidDisconnect,
             object: disconnectedGameController
         )
     }

@@ -80,20 +80,20 @@
 				45373DE91BE78E0D00A8162D /* InputSourceManager.swift */,
 				453515261BE655FD00F06790 /* Assets.xcassets */,
 				453515211BE655FD00F06790 /* Game.xcassets */,
-				45373DF61BE79B3D00A8162D /* D-pad handlers */,
+				45373DF61BE79B3D00A8162D /* D-Pad Handlers */,
 				453515231BE655FD00F06790 /* Main.storyboard */,
 				45F298211BE6B0BE007A256F /* Sounds */,
 			);
 			path = TVRemotePadTechniques;
 			sourceTree = "<group>";
 		};
-		45373DF61BE79B3D00A8162D /* D-pad handlers */ = {
+		45373DF61BE79B3D00A8162D /* D-Pad Handlers */ = {
 			isa = PBXGroup;
 			children = (
 				45373DF41BE7999700A8162D /* DPadSideHandler.swift */,
 				45373DF71BE79B5800A8162D /* DPadCornerHandler.swift */,
 			);
-			name = "D-pad handlers";
+			name = "D-Pad Handlers";
 			sourceTree = "<group>";
 		};
 		45F298211BE6B0BE007A256F /* Sounds */ = {
@@ -131,11 +131,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = 9Labs;
 				TargetAttributes = {
 					453515151BE655FD00F06790 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = ZBJR46PSPF;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -215,8 +217,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -259,8 +263,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -288,10 +294,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = ZBJR46PSPF;
 				INFOPLIST_FILE = TVRemotePadTechniques/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LLVM_LTO = YES_THIN;
 				PRODUCT_BUNDLE_IDENTIFIER = io.9labs.TVRemotePadTechniques;
 				PRODUCT_NAME = TVRemotePadTechniques;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -300,10 +309,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = ZBJR46PSPF;
 				INFOPLIST_FILE = TVRemotePadTechniques/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LLVM_LTO = YES_THIN;
 				PRODUCT_BUNDLE_IDENTIFIER = io.9labs.TVRemotePadTechniques;
 				PRODUCT_NAME = TVRemotePadTechniques;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

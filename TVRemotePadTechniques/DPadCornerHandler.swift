@@ -9,30 +9,30 @@
 import UIKit
 
 enum PressedDPadCorner {
-    case TopLeft
-    case TopRight
-    case BottomLeft
-    case BottomRight
-    case None
+    case topLeft
+    case topRight
+    case bottomLeft
+    case bottomRight
+    case none
 }
 
-typealias DPadCornerHandlerPressBlock = PressedDPadCorner -> Void
+typealias DPadCornerHandlerPressBlock = (PressedDPadCorner) -> Void
 
 class DPadCornerHandler: NSObject {
 
-    private var lastPressedCorner: PressedDPadCorner = .None
+    private var lastPressedCorner: PressedDPadCorner = .none
 
-    func handlePress(xAxis xAxis: CGFloat, yAxis: CGFloat, onPress: DPadCornerHandlerPressBlock, onRelease: DPadCornerHandlerPressBlock) {
+    func handlePress(xAxis: CGFloat, yAxis: CGFloat, onPress: DPadCornerHandlerPressBlock, onRelease: DPadCornerHandlerPressBlock) {
         let pressedCorner = findPressedCorner(xAxis, yAxis: yAxis)
 
-        if lastPressedCorner != .None && pressedCorner != lastPressedCorner {
+        if lastPressedCorner != .none && pressedCorner != lastPressedCorner {
             // Touch ended
             onRelease(lastPressedCorner)
-            lastPressedCorner = .None
+            lastPressedCorner = .none
         }
 
-        if pressedCorner != .None {
-            if lastPressedCorner == .None {
+        if pressedCorner != .none {
+            if lastPressedCorner == .none {
                 // Touch began
                 lastPressedCorner = pressedCorner
                 onPress(lastPressedCorner)
@@ -43,20 +43,20 @@ class DPadCornerHandler: NSObject {
     // MARK: Private Functions
 
     // Read D-Pad and return the active corner out of the 4 possible corners
-    private func findPressedCorner(xAxis: CGFloat, yAxis: CGFloat) -> PressedDPadCorner {
+    private func findPressedCorner(_ xAxis: CGFloat, yAxis: CGFloat) -> PressedDPadCorner {
         switch (xAxis, yAxis) {
         case (0, 0):
-            return .None
+            return .none
         case (-1..<0, 0...1):
-            return .TopLeft
+            return .topLeft
         case (0...1, 0...1):
-            return .TopRight
+            return .topRight
         case (0...1, -1..<0):
-            return .BottomRight
+            return .bottomRight
         case (-1..<0, -1..<0):
-            return .BottomLeft
+            return .bottomLeft
         default:
-            return .None
+            return .none
         }
     }
 }

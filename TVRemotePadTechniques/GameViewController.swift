@@ -18,7 +18,7 @@ class GameViewController: GCEventViewController {
         presentSceneNamed("GameScene", shouldTransition: false)
     }
 
-    func presentSceneNamed(name: String, shouldTransition: Bool) {
+    func presentSceneNamed(_ name: String, shouldTransition: Bool) {
         if let scene = GameScene(fileNamed: name) {
             // Configure the view.
             let skView = self.view as! SKView
@@ -29,10 +29,10 @@ class GameViewController: GCEventViewController {
             skView.ignoresSiblingOrder = true
 
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .aspectFill
 
             if shouldTransition {
-                let transition = SKTransition.revealWithDirection(.Left, duration: 0.35)
+                let transition = SKTransition.reveal(with: .left, duration: 0.35)
                 skView.presentScene(scene, transition: transition)
             } else {
                 skView.presentScene(scene)

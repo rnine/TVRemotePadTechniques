@@ -9,11 +9,11 @@
 import UIKit
 
 enum PressedDPadSide {
-    case Left
-    case Right
-    case Up
-    case Down
-    case None
+    case left
+    case right
+    case up
+    case down
+    case none
 }
 
 private struct Triangle {
@@ -22,11 +22,11 @@ private struct Triangle {
     let p3: CGPoint
 }
 
-typealias DPadSideHandlerPressBlock = PressedDPadSide -> Void
+typealias DPadSideHandlerPressBlock = (PressedDPadSide) -> Void
 
 class DPadSideHandler: NSObject {
 
-    private var lastPressedSide: PressedDPadSide = .None
+    private var lastPressedSide: PressedDPadSide = .none
 
     // Up triangle: (-1, 1), (1, 1), (0, 0)
     private let upTriangle = Triangle(p1: CGPoint(x: -1, y: 1), p2: CGPoint(x: 1, y: 1), p3: CGPoint(x: 0, y: 0))
@@ -40,17 +40,17 @@ class DPadSideHandler: NSObject {
     // Right triangle: (1, 1), (1, -1), (0, 0)
     private let rightTriangle = Triangle(p1: CGPoint(x: 1, y: 1), p2: CGPoint(x: 1, y: -1), p3: CGPoint(x: 0, y: 0))
 
-    func handlePress(xAxis xAxis: CGFloat, yAxis: CGFloat, onPress: DPadSideHandlerPressBlock, onRelease: DPadSideHandlerPressBlock) {
+    func handlePress(xAxis: CGFloat, yAxis: CGFloat, onPress: DPadSideHandlerPressBlock, onRelease: DPadSideHandlerPressBlock) {
         let pressedSide = findPressedSide(xAxis, yAxis: yAxis)
 
-        if lastPressedSide != .None && pressedSide != lastPressedSide {
+        if lastPressedSide != .none && pressedSide != lastPressedSide {
             // Touch ended
             onRelease(lastPressedSide)
-            lastPressedSide = .None
+            lastPressedSide = .none
         }
 
-        if pressedSide != .None {
-            if lastPressedSide == .None {
+        if pressedSide != .none {
+            if lastPressedSide == .none {
                 // Touch began
                 lastPressedSide = pressedSide
                 onPress(lastPressedSide)
@@ -61,31 +61,31 @@ class DPadSideHandler: NSObject {
     // MARK: Private Functions
 
     // Read D-Pad and return the active side out of the 4 possible sides
-    private func findPressedSide(xAxis: CGFloat, yAxis: CGFloat) -> PressedDPadSide {
+    private func findPressedSide(_ xAxis: CGFloat, yAxis: CGFloat) -> PressedDPadSide {
         let point = CGPoint(x: xAxis, y: yAxis)
 
         if (isPointInsideTriangle(point, triangle: upTriangle)) {
-            return .Up
+            return .up
         }
 
         if (isPointInsideTriangle(point, triangle: downTriangle)) {
-            return .Down
+            return .down
         }
 
         if (isPointInsideTriangle(point, triangle: leftTriangle)) {
-            return .Left
+            return .left
         }
 
         if (isPointInsideTriangle(point, triangle: rightTriangle)) {
-            return .Right
+            return .right
         }
         
-        return .None
+        return .none
     }
 
     // Function based on "John Bananas" response for
     // http://stackoverflow.com/questions/2049582/how-to-determine-a-point-in-a-triangle
-    private func isPointInsideTriangle(point: CGPoint, triangle: Triangle) -> Bool {
+    private func isPointInsideTriangle(_ point: CGPoint, triangle: Triangle) -> Bool {
         let as_x = point.x - triangle.p1.x
         let as_y = point.y - triangle.p1.y
         let bs_x = point.x - triangle.p2.x
